@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
         <title>Giftblitz</title>
+        <link href="styles.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
-        <form id="nameInputs" action="" method="GET">
-            <p><label>Name 1: </label><input type="text" name="n1"></p>
-            <p><label>Name 2: </label><input type="text" name="n2"></p>
-            <p><label>Name 3: </label><input type="text" name="n3"></p>
-            <p><label>Name 4: </label><input type="text" name="n4"></p>
-            <p><label>Name 5: </label><input type="text" name="n5"></p>
-        </form>
-        <button onclick="displayMatches()">List matches</button>
-
+        <div class="container">
+            <div class="inputFormGroup">
+                <form class="formBox" id="nameInputs" action="" method="GET">
+                    <div class="input top">
+                        <input type="text" name="n1">
+                    </div>
+                    <div class="input middle">
+                        <input type="text" name="n2">
+                    </div>
+                    <div class="input bottom">
+                        <input type="text" name="n3">
+                        <button onclick="displayMatches()">List matches</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
         <p id="list"></p>
 
-        <script type="text/javascript" src="underscore.js"></script>
+        <script type="text/javascript" src="underscore-min.js"></script>
         <script type="text/javascript" src="index.js"></script>
     </body>
 </html>

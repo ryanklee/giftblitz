@@ -1,8 +1,35 @@
-body {
+/* body {
     display: block;
     margin: 8px;
     margin-top: 20px;
     margin-right: 8px;
     margin-bottom: 8px;
     margin-left: 20px;
+} */
+
+.container {
+    /* background: gray;
+    position: absolute;
+    top: 50%;
+    margin-top: -50%;
+    width: 100%;
+    left: 0; */
+}
+
+.formBox {
+    height: 90px;
+    width: auto;
+}
+
+.inputFormGroup {
+    background: grey;
+    position: absolute;
+    top: 50%;
+    height: 180px;
+    margin-top: -45px;
+}
+
+.input {
+    height: 30px;
+    width: auto;
 }

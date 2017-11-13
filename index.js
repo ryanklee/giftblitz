@@ -30,8 +30,12 @@ function displayMatches(){
 }
 
 function checkAddInput() {
-    var inputForm = `<input type="text" name="n1" oninput="checkAddInput()">`
-    document.getElementById("newInputs").innerHTML = inputForm;
+    var container = document.querySelectorAll('.container');
+    var inputBox = document.querySelector('.inputBox');
+    // var inputForm = `<input type="text" name="n1" oninput="checkAddInput()">`
+    // console.log(container, inputBox);
+    // document.getElementById("nameInputs").innerHTML = inputForm;
+    var nameInputsSel = document.querySelectorAll('input');
     console.log("here");
 //check if first char input
 //if yes, add another input,

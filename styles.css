@@ -1,29 +1,28 @@
-/* body {
-    display: block;
-    margin: 8px;
-    margin-top: 20px;
-    margin-right: 8px;
-    margin-bottom: 8px;
-    margin-left: 20px;
-} */
+body {
+    background-color: cadetblue;
+}
+
+:root {
+    --boxWidth: 150px;
+    --boxHeight: 32px;
+    --conMargin-top: -16px; 
+}
 
 .container {
     position: absolute;
     top: 50%;
-    margin-top: -16px;
+    margin-top: var(--conMargin-top);
     left: 0;
     width: 100%;
 }
 
 .box {
-    /* background: rebeccapurple; */
-    width: 150px;
-    height: 32px;
+    width: var(--boxWidth);
+    height: var(--boxHeight);
 }
 
 .inputBox {
     margin: 0 auto;
-
 }
 
 input {

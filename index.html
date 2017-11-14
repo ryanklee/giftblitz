@@ -6,16 +6,12 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,700">
         <link href="styles.css" type="text/css" rel="stylesheet" />
     </head>
-    <body>
-        <div class="container">
-            <div class="box inputBox">
-                <form id="nameInputs" action="" method="GET">
-                    <input type="text" name="n1" oninput="checkAddInput()">
-                    <!-- <div id="newInputs"></div> -->
-                </form>
-            </div>
-        </div>
-        <!-- <button onclick="displayMatches()">List matches</button> -->
+    <body>   
+        <form id="nameInputs" action="" method="GET">
+            <input type="text" name="n1" oninput="checkAddInput()">
+        </form>
+            
+        <button onclick="displayMatches()">List matches</button>
         <p id="list"></p>
 
         <script type="text/javascript" src="underscore-min.js"></script>

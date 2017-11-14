@@ -29,21 +29,5 @@ function displayMatches(){
     document.getElementById("list").innerHTML = displayList;
 }
 
-function checkAddInput() {
-    var container = document.querySelectorAll('.container');
-    var inputBox = document.querySelector('.inputBox');
-    // var inputForm = `<input type="text" name="n1" oninput="checkAddInput()">`
-    // console.log(container, inputBox);
-    // document.getElementById("nameInputs").innerHTML = inputForm;
-    var nameInputsSel = document.querySelectorAll('input');
-    console.log("here");
-//check if first char input
-//if yes, add another input,
-//if not, do nothing
-
-//check if input results in empty text box,
-//if yes, remove added input
-}
-
 
 

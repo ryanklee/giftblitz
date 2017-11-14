@@ -1,3 +1,34 @@
+//import "jsonfile";
+//import "underscore";
+
+
+var groups = [
+    {
+        id: "",
+        name: "",
+        deadline: "",
+        msg: "",
+        url: "",
+        members: [
+            {
+                id: "",
+                name: "",
+                email: "",
+                url: "",
+                link: "",
+                match: "",
+            }
+        ]
+    },
+]
+
+function hydrateGroup(){
+    group.name = document.getElementById("groupName").value;
+    group.deadline = document.getElementById("deadline").value;
+    group.msg = document.getElementById("msg").value;
+    group.url = document.getElementById("url").value;
+}
+
 function matchNames(pool){
     matches = {};
     var allNames = _.shuffle(pool);

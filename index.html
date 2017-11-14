@@ -7,14 +7,15 @@
         <link href="styles.css" type="text/css" rel="stylesheet" />
     </head>
     <body>   
-        <form id="nameInputs" action="" method="GET">
-            <input type="text" name="n1" oninput="checkAddInput()">
+        <form id="inputs" action="" method="GET">
+            <label>GroupName: </label><input id="groupName" type="text" name="groupName"><br>
+            <label>Deadline: </label><input id="deadline" type="text" name="deadline"><br>
+            <label>Message: </label><input id="msg" type="text" name="msg"><br>
+            <Label>URL: </Label><input id="url" type="text" name="url"><br>
         </form>
-            
-        <button onclick="displayMatches()">List matches</button>
-        <p id="list"></p>
+        <p id="output"></p>
 
-        <script type="text/javascript" src="underscore-min.js"></script>
         <script type="text/javascript" src="index.js"></script>
+        <script type="text/jacascript" src="/node_modules/underscore/underscore-min.js"></script>
     </body>
 </html>

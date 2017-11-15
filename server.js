@@ -1,11 +1,34 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const MongoClient = require('mongodb').MongoClient
 const app = express();
 
-app.listen(3000, ( ) => {
-    console.log('listening on 3000')
+var db;
+
+MongoClient.connect('mongodb://ryanklee:polecatglucosemarquessgelatin@ds259855.mlab.com:59855/giftblitz', (err, database) => {
+    if (err) return console.log(err);
+    db = database;
+    app.listen(3000, ( ) => {
+        console.log('listening on 3000');
+    })
 })
 
+app.use(bodyParser.urlencoded({extended: true}))
+
+
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html')
+    res.sendFile(__dirname + '/index.html');
+    
+    db.collection('groups').find().toArray(function(err, results) {
+        console.log(results);
+    })
 })
-console.log("may the node be with you")
+
+app.post('/groups', (req, res) => {
+    db.collection('groups').save(req.body, (err, result) => {
+        if (err) return console.log(err);
+
+        console.log('saved to database');
+        res.redirect('/');
+    })
+})

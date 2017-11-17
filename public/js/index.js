@@ -1,4 +1,5 @@
-// import "jsonfile";
+'use strict';
+
 const _ = require('underscore');
 
 let group = [

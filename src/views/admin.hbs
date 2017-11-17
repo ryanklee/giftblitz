@@ -1,0 +1,23 @@
+<html>
+
+<head>
+    <title>{{Title}}</title>
+</head>
+
+<body>
+    <p>{{#each Nav}}<a href="{{Link}}">{{Text}} </a>{{/each}}</p>
+    
+    
+    {{#each Mock}}
+        {{#each this}}{{@key}}:{{@this}} 
+            {{#each @this}} 
+                {{#each @this}} 
+                    {{@key}}: {{this}}<br>
+                {{/each}}<br>
+            {{/each}}<br>
+        {{/each}}<br>
+    {{/each}}
+    
+</body>
+
+</html>

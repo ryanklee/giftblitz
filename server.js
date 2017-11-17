@@ -1,13 +1,10 @@
-"use strict";
-
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
-const MongoClient = require('mongodb').MongoClient;
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
-let db;
 
 const nav = [{
   Link: '/Create',
@@ -24,12 +21,9 @@ const indexRouter = require('./src/routes/indexRoute')(nav);
 const adminRouter = require('./src/routes/adminRoute')(nav);
 const createRouter = require('./src/routes/createRoute')(nav);
 
-MongoClient.connect('mongodb://ryanklee:polecatglucosemarquessgelatin@ds259855.mlab.com:59855/giftblitz', (err, database) => {
-  if (err) return console.log(err);
-  db = database;
-  app.listen(port, (err) => {
-    console.log('running server on port ' + port);
-  });
+app.listen(port, (err) => {
+  if (err) console.log(err);
+  console.log('running server on port ' + port);
 });
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -43,11 +37,6 @@ app.set('views', './src/views');
 app.use('/', indexRouter);
 app.use('/Admin', adminRouter);
 app.use('/create', createRouter);
-
-// app.get('/', (req, res) => {
-//   res.render('index', { title: 'hello from render' });
-//   let cursor = db.collection('group').find();
-// });
 
 app.post('/group', (req, res) => {
   db.collection('quotes').save(req.body, (err, result) => {

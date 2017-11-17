@@ -1,5 +1,4 @@
 const express = require('express');
-
 const indexRouter = express.Router();
 
 const router = function(nav) {
@@ -12,6 +11,5 @@ const router = function(nav) {
     });
     return indexRouter;
 };
-
 
 module.exports = router;

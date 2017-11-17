@@ -1,8 +1,7 @@
 const express = require('express');
-
 const createRouter = express.Router();
 
-const router = function (nav) {
+const router = function(nav) {
   createRouter.route('/')
     .get(function (req, res) {
       res.render('create', {

@@ -1,7 +1,7 @@
 // import "jsonfile";
 const _ = require('underscore');
 
-var group = [
+let group = [
   {
     id: '',
     name: '',

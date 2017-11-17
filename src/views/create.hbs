@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <p>{{#each Nav}}<a href="{{Link}}">{{Text}} </a>{{/each}}</p>
+
+    <form id="inputs" action="/group" method="POST">
+        <label>GroupName: </label>
+        <input id="groupName" type="text" name="groupName">
+        <br>
+        <label>Deadline: </label>
+        <input id="deadline" type="text" name="deadline">
+        <br>
+        <label>Message: </label>
+        <input id="msg" type="text" name="msg">
+        <br>
+        <Label>URL: </Label>
+        <input id="url" type="text" name="url">
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    <p id="output"></p>
+</body>
+
+</html>

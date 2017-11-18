@@ -76,9 +76,6 @@ typings/
 .history
 
 # End of https://www.gitignore.io/api/node,visualstudiocode
-package-lock.json
-.vscode/launch.json
-package.json
 
 # Created by https://www.gitignore.io/api/node
 

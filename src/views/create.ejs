@@ -2,13 +2,17 @@
 
 <head>
     <meta charset="utf-8">
-    <title>{{Title}}</title>
+    <title><%=Title%></title>
     <link href="css/styles.css" rel="stylesheet">
 </head>
 
 <body>
-    <p>{{#each Nav}}<a href="{{Link}}">{{Text}} </a>{{/each}}</p>
-
+    <p>
+        <% for(let i = 0; i < Nav.length; i++){%>
+        <a href="<%=Nav[i].Link%>"><%=Nav[i].Text%></a>
+        <%}%>
+    </p>    
+        
     <form id="inputs" action="/group" method="POST">
         <label>GroupName: </label>
         <input id="groupName" type="text" name="groupName">

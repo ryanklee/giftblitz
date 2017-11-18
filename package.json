@@ -1,0 +1,37 @@
+{
+  "name": "giftblitz",
+  "version": "1.0.0",
+  "description": "giftblitz",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "faker": "^4.1.0",
+    "mongodb": "^2.2.33",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.11.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-plugin-import": "^2.8.0",
+    "nodemon": "^1.12.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanklee/giftblitz.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryanklee/giftblitz/issues"
+  },
+  "homepage": "https://github.com/ryanklee/giftblitz#readme"
+}

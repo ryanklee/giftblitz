@@ -11,6 +11,7 @@ const groupPortalController = function (nav) {
   
   const postGroup = function (req, res) {
     const groupController = require('./group.controller.server');
+    res.redirect('/groupportal');
     return groupController.create(req, res);
   };
 

@@ -28,7 +28,7 @@ app.set('views', './src/views');
 
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
-app.use(['/groupportal', '/group'], groupPortalRouter);
-app.use(['/memberportal', '/member'], memberPortalRouter);
+app.use('/groupportal', groupPortalRouter);
+app.use('/memberportal', memberPortalRouter);
 
 

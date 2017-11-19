@@ -10,6 +10,7 @@
     "express": "^4.16.2",
     "faker": "^4.1.0",
     "mailgun-js": "^0.13.1",
+    "moment": "^2.19.2",
     "mongodb": "^2.2.33",
     "mongoose": "^4.13.4",
     "node-schedule": "^1.2.5",

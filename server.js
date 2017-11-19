@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
 const port = process.env.PORT || 3000;
-const nav = require('./src/models/nav.model');
+const nav = require('./src/views/nav.model');
 
 const indexRouter = require('./src/routes/index.route')(nav);
 const adminRouter = require('./src/routes/admin.route')(nav);

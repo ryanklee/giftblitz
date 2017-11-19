@@ -1,7 +1,7 @@
 'use strict';
 // const mongodb = require('mongodb').MongoClient;
 // const mongoURL = `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}`;
-const mockGroup = require('../services/faker');
+const mockGroup = require('../data/faker');
 
 const adminController = function(nav){
     const getIndex = function (req, res) {

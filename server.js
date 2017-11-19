@@ -3,53 +3,32 @@
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
-
+const mongoose = require('mongoose');
 const app = express();
 const port = process.env.PORT || 3000;
+const nav = require('./src/models/nav.model');
 
+const indexRouter = require('./src/routes/index.route')(nav);
+const adminRouter = require('./src/routes/admin.route')(nav);
+const createGroupRouter = require('./src/routes/creategroup.route') (nav);
+const createMemberRouter = require('./src/routes/createmember.route') (nav);
 
-const nav = [{
-  Link: '/Create',
-  Text: 'Create'
-}, {
-  Link: '/',
-  Text: 'Index'
-}, {
-  Link: '/Admin',
-  Text: 'Admin'
-}];
-
-const indexRouter = require('./src/routes/indexRoute')(nav);
-const adminRouter = require('./src/routes/adminRoute')(nav);
-const createRouter = require('./src/routes/createRoute')(nav);
+mongoose.connect(`mongodb://${process.env.TEST_DB_USER}:${process.env.TEST_DB_PASS}@${process.env.TEST_DB_HOST}`, { useMongoClient: true });
 
 app.listen(port, (err) => {
   if (err) console.log(err);
   console.log('running server on port ' + port);
 });
 
-app.use(bodyParser.urlencoded({ extended: true }));
-
 app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
 app.set('views', './src/views');
+
 app.use('/', indexRouter);
-app.use('/Admin', adminRouter);
-app.use('/create', createRouter);
-
-app.post('/group', (req, res) => {
-  db.collection('quotes').save(req.body, (err, result) => {
-    if (err) return console.log(err);
-
-    console.log('saved to database');
-
-    db.collection('group').find().toArray(function (err, results) {
-      console.log(results);
-    });
-
-    res.redirect('/');
-  });
-});
+app.use('/admin', adminRouter);
+app.use(['/creategroup', '/group'], createGroupRouter);
+app.use(['/createmember', '/member'], createMemberRouter);
 
 

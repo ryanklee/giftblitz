@@ -2,33 +2,33 @@
 
 <head>
     <meta charset="utf-8">
-    <title><%=Title%></title>
+    <title>
+        <%=Title%>
+    </title>
     <link href="css/styles.css" rel="stylesheet">
 </head>
 
 <body>
     <p>
         <% for(let i = 0; i < Nav.length; i++){%>
-        <a href="<%=Nav[i].Link%>"><%=Nav[i].Text%></a>
-        <%}%>
-    </p>    
-        
+            <a href="<%=Nav[i].Link%>">
+                <%=Nav[i].Text%>
+            </a>
+            <%}%>
+    </p>
+
     <form id="inputs" action="/group" method="POST">
         <label>GroupName: </label>
-        <input id="groupName" type="text" name="groupName">
+        <input id="name" type="text" name="name">
         <br>
         <label>Deadline: </label>
         <input id="deadline" type="text" name="deadline">
         <br>
         <label>Message: </label>
-        <input id="msg" type="text" name="msg">
-        <br>
-        <Label>URL: </Label>
-        <input id="url" type="text" name="url">
+        <input id="message" type="text" name="message">
         <br>
         <button type="submit">Submit</button>
     </form>
-    <p id="output"></p>
 </body>
 
 </html>

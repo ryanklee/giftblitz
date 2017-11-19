@@ -5,7 +5,7 @@ const Group =
   {
     groupID: faker.random.uuid(),
     groupName: faker.lorem.word(),
-    deadline: faker.date.soon(),
+    deadline: faker.date.soon,
     message: faker.lorem.paragraph(),
     url: faker.internet.url(),
     members: [

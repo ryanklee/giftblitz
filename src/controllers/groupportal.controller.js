@@ -1,9 +1,9 @@
 'use strict';
 
-const createController = function (nav) {
+const groupPortalController = function (nav) {
   
   const getIndex = function (req, res) {
-    res.render('creategroup', {
+    res.render('groupportal', {
       Title: 'CREATE GROUP',
       Nav: nav
     });
@@ -21,4 +21,4 @@ const createController = function (nav) {
 
 };
 
-module.exports = createController;
+module.exports = groupPortalController;

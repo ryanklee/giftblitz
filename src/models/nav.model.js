@@ -1,11 +1,11 @@
 'use strict';
 
 const nav = [{
-  Link: '/Creategroup',
-  Text: 'Create Group'
+  Link: '/groupportal',
+  Text: 'Group Portal'
 }, {
-  Link: '/Createmember',
-  Text: 'Create Member'
+  Link: '/memberportal',
+  Text: 'Member Portal'
 }, {
   Link: '/',
   Text: 'Index'

@@ -10,8 +10,8 @@ const nav = require('./src/models/nav.model');
 
 const indexRouter = require('./src/routes/index.route')(nav);
 const adminRouter = require('./src/routes/admin.route')(nav);
-const createGroupRouter = require('./src/routes/creategroup.route') (nav);
-const createMemberRouter = require('./src/routes/createmember.route') (nav);
+const groupPortalRouter = require('./src/routes/groupportal.route') (nav);
+const memberPortalRouter = require('./src/routes/memberportal.route') (nav);
 
 mongoose.connect(`mongodb://${process.env.TEST_DB_USER}:${process.env.TEST_DB_PASS}@${process.env.TEST_DB_HOST}`, { useMongoClient: true });
 
@@ -28,7 +28,7 @@ app.set('views', './src/views');
 
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
-app.use(['/creategroup', '/group'], createGroupRouter);
-app.use(['/createmember', '/member'], createMemberRouter);
+app.use(['/groupportal', '/group'], groupPortalRouter);
+app.use(['/memberportal', '/member'], memberPortalRouter);
 
 

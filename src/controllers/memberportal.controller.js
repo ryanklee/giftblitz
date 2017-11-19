@@ -1,9 +1,9 @@
 'use strict';
 
-const createController = function (nav) {
+const memberPortalController = function (nav) {
 
   const getIndex = function (req, res) {
-    res.render('createmember', {
+    res.render('memberportal', {
       Title: 'CREATE MEMBER',
       Nav: nav
     });
@@ -21,4 +21,4 @@ const createController = function (nav) {
 
 };
 
-module.exports = createController;
+module.exports = memberPortalController;

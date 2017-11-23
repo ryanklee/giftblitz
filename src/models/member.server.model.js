@@ -8,8 +8,9 @@ const memberSchema = new Schema({
     last: String,
   },
   email: String,
+  fired: { type: Boolean, default: false },
   createdOn: { type: Date, default: Date.now },
-  match: {type: Schema.Types.ObjectId, default: null}
+  match: { type: Schema.Types.ObjectId, default: null }
 });
 
 module.exports = mongoose.model('Member', memberSchema);

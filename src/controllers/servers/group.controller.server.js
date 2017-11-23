@@ -7,7 +7,7 @@ exports.create = function (req, res) {
     message: req.body.message
   });
   
-  entry.save(function (err, entry){
+  entry.save(function (err){
     if (err) return console.error(err);
   });
 };

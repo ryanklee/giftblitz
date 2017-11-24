@@ -1,23 +1,22 @@
-'use strict';
+const createMember = require('../servers/member.controller.server');
 
-const memberPortalController = function (nav) {
-	const getIndex = function (req, res) {
-		res.render('member', {
-			Title: 'CREATE MEMBER',
-			Nav: nav
-		});
-	};
+const memberPortalController = function memberPortalController(nav) {
+  const getIndex = function getIndex(req, res) {
+    res.render('member', {
+      Title: 'CREATE MEMBER',
+      Nav: nav,
+    });
+  };
 
-	const postMember = function (req, res) {
-		const memberController = require('./servers/member.controller.server');
-		res.redirect('/member');
-		return memberController.create(req, res);
-	};
+  const postMember = function postMember(req, res) {
+    res.redirect('/member');
+    return createMember(req, res);
+  };
 
-	return {
-		getIndex,
-		postMember
-	};
+  return {
+    getIndex,
+    postMember,
+  };
 };
 
 module.exports = memberPortalController;

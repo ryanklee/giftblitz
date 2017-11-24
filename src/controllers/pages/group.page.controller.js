@@ -1,3 +1,5 @@
+const createGroup = require('../servers/group.controller.server');
+
 const groupPortalController = function groupPortalController(nav) {
   const getIndex = function getIndex(req, res) {
     res.render('group', {
@@ -7,9 +9,8 @@ const groupPortalController = function groupPortalController(nav) {
   };
 
   const postGroup = function postGroup(req, res) {
-    const groupController = require('../servers/group.controller.server');
     res.redirect('/group');
-    return groupController.create(req, res);
+    return createGroup(req, res);
   };
 
   return {

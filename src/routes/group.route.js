@@ -1,16 +1,13 @@
-'use strict';
+const nav = require('../views/nav');
+const groupPageController = require('../controllers/pages/group.page.controller')(nav);
 const express = require('express');
-
 const groupRouter = express.Router();
 
-const router = function (nav) {
-	const groupPageController = require('../controllers/pages/group.page.controller')(nav);
-
-	groupRouter.route('/')
+const router = function router() {
+  groupRouter.route('/')
     .get(groupPageController.getIndex)
     .post(groupPageController.postGroup);
-
-	return groupRouter;
+  return groupRouter;
 };
 
 module.exports = router;

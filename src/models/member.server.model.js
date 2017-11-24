@@ -1,8 +1,7 @@
-'use strict';
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const { Schema: NewSchema } = mongoose;
 
-const memberSchema = new Schema({
+const memberSchema = new NewSchema({
   name: {
     first: String,
     last: String,
@@ -10,7 +9,7 @@ const memberSchema = new Schema({
   email: String,
   fired: { type: Boolean, default: false },
   createdOn: { type: Date, default: Date.now },
-  match: { type: Schema.Types.ObjectId, default: null }
+  match: { type: NewSchema.Types.ObjectId, default: null },
 });
 
 module.exports = mongoose.model('Member', memberSchema);

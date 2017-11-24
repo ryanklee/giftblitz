@@ -12,14 +12,19 @@ Group.aggregate([
   {
     $unwind: '$members',
   },
-],
-)
+])
   .exec((err, result) => {
     if (err) {
       console.log(err);
     }
-    for (const key in result) {
-      sendEmail(result[key].members.email);
-    }
+    // for (const key in result) {
+    //   if (Object.prototype.hasOwnProperty.call(result, key)){
+    //     sendEmail(result[key].members.email);
+    //   }
+    // }
+
+    result.forEach((item, index) => {
+      console.log(item.members.email);
+    });
   });
 

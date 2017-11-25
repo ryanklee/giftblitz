@@ -7,7 +7,6 @@ function create(req, res) {
     message: req.body.message,
   });
   entry.save();
-  console.log('posted in members');
 }
 
 module.exports = create;

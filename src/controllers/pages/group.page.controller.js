@@ -1,6 +1,6 @@
 const createGroup = require('../servers/group.controller.server');
 
-const groupPortalController = function groupPortalController(nav) {
+const groupPageController = function groupPageController(nav) {
   const getIndex = function getIndex(req, res) {
     res.render('group', {
       Title: 'CREATE GROUP',
@@ -19,4 +19,4 @@ const groupPortalController = function groupPortalController(nav) {
   };
 };
 
-module.exports = groupPortalController;
+module.exports = groupPageController;

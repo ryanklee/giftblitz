@@ -9,7 +9,6 @@ function create(req, res) {
     email: req.body.email,
   });
   entry.save();
-  console.log('posted in groups');
 }
 
 module.exports = create;

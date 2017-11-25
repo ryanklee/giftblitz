@@ -1,6 +1,6 @@
 const createMember = require('../servers/member.controller.server');
 
-const memberPortalController = function memberPortalController(nav) {
+const memberPageController = function memberPageController(nav) {
   const getIndex = function getIndex(req, res) {
     res.render('member', {
       Title: 'CREATE MEMBER',
@@ -19,4 +19,4 @@ const memberPortalController = function memberPortalController(nav) {
   };
 };
 
-module.exports = memberPortalController;
+module.exports = memberPageController;

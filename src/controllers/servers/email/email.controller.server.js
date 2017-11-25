@@ -3,8 +3,6 @@ const mongoose = require('mongoose');
 const Group = require('../../../models/group.server.model');
 const moment = require('moment');
 
-const date = moment().add(2, 'days');
-
 //const sendEmail = require('./mailer.maildev.server');
 //const RateLimiter = require('limiter').RateLimiter;
 

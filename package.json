@@ -10,6 +10,7 @@
     "express": "^4.16.2",
     "faker": "^4.1.0",
     "limiter": "^1.1.2",
+    "lodash.shuffle": "^4.2.0",
     "maildev": "^1.0.0-rc3",
     "moment": "^2.19.2",
     "mongodb": "^2.2.33",

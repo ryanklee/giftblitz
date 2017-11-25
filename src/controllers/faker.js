@@ -36,9 +36,9 @@ const createMember = function createMember() {
 };
 
 (function addMemToGroup() {
-  for (let i = 0; i < numberOfGroups; i++) {
+  for (let i = 0; i < numberOfGroups; i += 1) {
     const memberEntries = [];
-    for (let i = 0; i < numberOfMembers; i++) {
+    for (let j = 0; j < numberOfMembers; j += 1) {
       memberEntries.push(createMember());
     }
     createGroup(memberEntries);

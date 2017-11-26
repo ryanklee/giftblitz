@@ -13,7 +13,7 @@ mongoose.connect(`mongodb://${process.env.TEST_DB_USER}:${process.env.TEST_DB_PA
 const createGroup = function createGroup(memberEntries) {
   const groupEntry = new Group({
     name: faker.company.companyName(),
-    deadline: moment().add(1, 'day'),
+    deadline: moment().add(1, 'days'),
     message: faker.lorem.paragraph(),
     members: memberEntries,
   });

@@ -16,19 +16,21 @@ function create(req, res) {
   });
 }
 
-function addMatch(groupID, memberIndex, matchID) {
-  // console.log(groupID, memberIndex, matchID);
-  Group.findById(groupID, (err, group) => {
-    group.members[memberIndex].set({ match: matchID });
-    group.save();
+function addMatch(groupID, matchedPairs) {
+
+  Object.keys(matchedPairs).forEach((memberID) => {
+
+    Group.findOneAndUpdate(
+      { _id: groupID, 'members._id': memberID },
+      {
+        $set: {
+          'members.$.match': matchedPairs[memberID],
+        },
+      }, (err, doc) => {
+        if (err) console.log(err);
+      },
+    );
   });
 }
-
-// function getMatch(groupID, memberIndex, matchID) {
-//   Group.findById(groupID, (err, group) => {
-//     const match = group.members[memberIndex].match;
-
-//   });
-// }
 
 module.exports = (create, addMatch);

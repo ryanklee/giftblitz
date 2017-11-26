@@ -8,21 +8,14 @@ const addMatch = require('./member.controller.server');
 
 mongoose.connect(`mongodb://${process.env.TEST_DB_USER}:${process.env.TEST_DB_PASS}@${process.env.TEST_DB_HOST}`, { useMongoClient: true });
 
-const generateMatches = function generateMatches(idCollection, item) {
-  let memberIDs = [];
+const generateMatches = function generateMatches(memberIDs, item) {
   const matches = {};
-
-  Object.keys(idCollection[item]).forEach((entry) => {
-    memberIDs.push(entry);
-  });
-
-  memberIDs = shuffle(memberIDs);
   let pool = shuffle(memberIDs);
-  let setGood = true;
+  let allGoodMatches = true;
 
   memberIDs.forEach((id) => {
     if (id === pool[pool.length - 1] && pool.length === 1) {
-      setGood = false;
+      allGoodMatches = false;
     } else if (id === pool[pool.length - 1]) {
       pool = pool.reverse();
       matches[id] = pool.pop();
@@ -32,25 +25,21 @@ const generateMatches = function generateMatches(idCollection, item) {
     return true;
   });
 
-  if (setGood === false) return false;
+  if (allGoodMatches === false) return false;
   return matches;
 };
 
 Group.aggregate([
   {
-    $match:
-      {
-        deadline: {
-          $gte: new Date(moment().startOf('day')),
-          $lt: new Date(moment().endOf('day')),
-        },
+    $match: {
+      deadline: {
+        $gte: new Date(moment().startOf('day')),
+        $lt: new Date(moment().endOf('day')),
       },
+    },
   },
   {
-    $project: {
-      _id: 1,
-      members: 1,
-    },
+    $project: { _id: 1, members: 1 },
   },
   {
     $unwind: '$members',
@@ -60,27 +49,26 @@ Group.aggregate([
     if (err) console.log(err);
     const idCollection = {};
     result
-      .forEach((item, index) => {
-        if (!idCollection[item._id]) {
-          idCollection[item._id] = {};
-          idCollection[item._id][item.members._id] = { email: item.members.email, first: item.members.name.first, last: item.members.name.last };
-        } else {
-          idCollection[item._id][item.members._id] = { email: item.members.email, first: item.members.name.first, last: item.members.name.last };
-        }
-      });
-    Object.keys(idCollection)
       .forEach((item) => {
-        let matches = false;
-        while (matches === false) {
-          matches = generateMatches(idCollection, item);
+        if (!idCollection[item._id]) {
+          idCollection[item._id] = [];
+          idCollection[item._id].push(item.members._id);
+        } else {
+          idCollection[item._id].push(item.members._id);
         }
-        
-        Object.keys(matches).forEach((member, index) => {
-          //console.log(`${item} ${index} ${member} is matched with ${matches[member]}`);
-          addMatch(item, index, matches[member]);
-          //console.log(idCollection);
-        });
       });
-  });
 
+    Object.keys(idCollection).forEach((groupID) => {
+      let matches = false;
+      while (matches === false) {
+        matches = generateMatches(idCollection[groupID]);
+      }
+      idCollection[groupID] = matches;
+    });
+
+    Object.keys(idCollection).forEach((groupID) => {
+      const matchedPairs = idCollection[groupID];
+      addMatch(groupID, matchedPairs);
+    });
+  });
 

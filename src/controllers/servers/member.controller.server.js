@@ -13,14 +13,15 @@ function create(req, res) {
   Group.findOne({ name: req.body.group }, (err, group) => {
     group.members.push(entry);
     group.save();
-    
-    // if (err) return console.log(err);
-    // group.members.push(entry);
-    // group.save((err) => {
-    //   if (err) console.log(err);
-    //   return console.log('updated', group, entry);
-    // });
   });
 }
 
-module.exports = create;
+function addMatch(groupID, memberIndex, matchID) {
+  // console.log(groupID, memberIndex, matchID);
+  Group.findById(groupID, (err, group) => {
+    group.members[memberIndex].set({ match: matchID });
+    group.save();
+  });
+}
+
+module.exports = (create, addMatch);

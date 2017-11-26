@@ -7,6 +7,35 @@ const Member = require('../../models/member.server.model');
 const addMatch = require('./member.controller.server');
 
 mongoose.connect(`mongodb://${process.env.TEST_DB_USER}:${process.env.TEST_DB_PASS}@${process.env.TEST_DB_HOST}`, { useMongoClient: true });
+
+const generateMatches = function generateMatches(idCollection, item) {
+  let memberIDs = [];
+  const matches = {};
+
+  Object.keys(idCollection[item]).forEach((entry) => {
+    memberIDs.push(entry);
+  });
+
+  memberIDs = shuffle(memberIDs);
+  let pool = shuffle(memberIDs);
+  let setGood = true;
+
+  memberIDs.forEach((id) => {
+    if (id === pool[pool.length - 1] && pool.length === 1) {
+      setGood = false;
+    } else if (id === pool[pool.length - 1]) {
+      pool = pool.reverse();
+      matches[id] = pool.pop();
+    } else {
+      matches[id] = pool.pop();
+    }
+    return true;
+  });
+
+  if (setGood === false) return false;
+  return matches;
+};
+
 Group.aggregate([
   {
     $match:
@@ -41,37 +70,17 @@ Group.aggregate([
       });
     Object.keys(idCollection)
       .forEach((item) => {
-        let memberIDs = [];
-        const matches = {};
-        Object.keys(idCollection[item]).forEach((entry) => {
-          memberIDs.push(entry);
-        });
-
-        let pool = shuffle(memberIDs);
-
-        memberIDs.forEach((id) => {
-          if (id === pool[pool.length - 1]) {
-            pool = pool.reverse();
-          } else {
-            matches[id] = pool.pop();
-          }
-        });
+        let matches = false;
+        while (matches === false) {
+          matches = generateMatches(idCollection, item);
+        }
+        
         Object.keys(matches).forEach((member, index) => {
-          //console.log(`${item} ${index} ${matchid} is matched with ${matches[matchid]}`);
+          //console.log(`${item} ${index} ${member} is matched with ${matches[member]}`);
           addMatch(item, index, matches[member]);
+          //console.log(idCollection);
         });
       });
   });
 
-// const matchNames = function matchNames(pool) {
-//   const matches = {};
-//   const allNames = shuffle(pool);
 
-//   allNames.forEach((name) => {
-//     if (name === pool[pool.length - 1]) {
-//       pool = pool.reverse();
-//     }
-//     matches[name] = pool.pop();
-//   });
-//   return matches;
-// }

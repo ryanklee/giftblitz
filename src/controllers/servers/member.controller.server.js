@@ -24,4 +24,11 @@ function addMatch(groupID, memberIndex, matchID) {
   });
 }
 
+// function getMatch(groupID, memberIndex, matchID) {
+//   Group.findById(groupID, (err, group) => {
+//     const match = group.members[memberIndex].match;
+
+//   });
+// }
+
 module.exports = (create, addMatch);

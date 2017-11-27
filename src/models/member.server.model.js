@@ -9,7 +9,7 @@ const memberSchema = new NewSchema({
   email: String,
   fired: { type: Boolean, default: false },
   createdOn: { type: Date, default: Date.now },
-  match: { type: NewSchema.Types.ObjectId, default: null },
+  assignment: { type: NewSchema.Types.ObjectId, default: null },
 });
 
 module.exports = mongoose.model('Member', memberSchema);

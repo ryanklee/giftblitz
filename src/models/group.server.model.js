@@ -10,14 +10,14 @@ const memberSchema = new NewSchema({
   email: String,
   fired: { type: Boolean, default: false },
   createdOn: { type: Date, default: Date.now },
-  match: { type: NewSchema.Types.ObjectId, default: null }
+  assignment: { type: NewSchema.Types.ObjectId, default: null }
 });
 
 const groupSchema = new NewSchema({
   name: String,
   deadline: Date,
   message: String,
-  fired: { type: Boolean, default: false },
+  pastDeadline: { type: Boolean, default: false },
   url: { type: String, default: null },
   createdOn: { type: Date, default: Date.now },
   members: { type: [memberSchema], default: null },

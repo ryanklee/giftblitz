@@ -1,10 +1,9 @@
 require('dotenv').config();
 const shuffle = require('lodash.shuffle');
-const moment = require('moment');
 const mongoose = require('mongoose');
 const Group = require('../../models/group.server.model');
-const Member = require('../../models/member.server.model');
-const addMatch = require('./member.controller.server');
+const prepEmails = require('./email/email.controller.server');
+
 
 mongoose.connect(`mongodb://${process.env.TEST_DB_USER}:${process.env.TEST_DB_PASS}@${process.env.TEST_DB_HOST}`, { useMongoClient: true });
 
@@ -29,14 +28,24 @@ const generateMatches = function generateMatches(memberIDs, item) {
   return matches;
 };
 
+const addAssignment = function addAssignment(groupID, matchedPairs) {
+  Object.keys(matchedPairs).forEach((memberID) => {
+    Group.update(
+      { _id: groupID, 'members._id': memberID },
+      {
+        $set: {
+          'members.$.assignment': matchedPairs[memberID],
+        },
+      }, (err, doc) => {
+        if (err) console.log(err);
+      },
+    );
+  });
+};
+
 Group.aggregate([
   {
-    $match: {
-      deadline: {
-        $gte: new Date(moment().startOf('day')),
-        $lt: new Date(moment().endOf('day')),
-      },
-    },
+    $match: { pastDeadline: true },
   },
   {
     $project: { _id: 1, members: 1 },
@@ -59,16 +68,16 @@ Group.aggregate([
       });
 
     Object.keys(idCollection).forEach((groupID) => {
-      let matches = false;
-      while (matches === false) {
-        matches = generateMatches(idCollection[groupID]);
+      let completedMatchSet = false;
+      while (completedMatchSet === false) {
+        completedMatchSet = generateMatches(idCollection[groupID]);
       }
-      idCollection[groupID] = matches;
+      idCollection[groupID] = completedMatchSet;
     });
 
     Object.keys(idCollection).forEach((groupID) => {
       const matchedPairs = idCollection[groupID];
-      addMatch(groupID, matchedPairs);
+      addAssignment(groupID, matchedPairs);
     });
+    prepEmails(idCollection);
   });
-

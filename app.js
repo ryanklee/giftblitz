@@ -2,10 +2,12 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const schedule = require('node-schedule');
+const setPastDeadLines = require('./src/controllers/servers/deadline.controller.server');
+const sendEmails = require('./src/controllers/servers/match.controller.server');
 
 const app = express();
 const port = process.env.PORT || 3000;
-
 const nav = require('./src/views/nav');
 const indexRouter = require('./src/routes/index.route')(nav);
 const groupRouter = require('./src/routes/group.route')(nav);
@@ -30,3 +32,10 @@ app.use('/', indexRouter);
 app.use('/group', groupRouter);
 app.use('/member', memberRouter);
 
+const rule = new schedule.RecurrenceRule();
+rule.minute = 48;
+
+const sched = schedule.scheduleJob(rule, () => {
+  setPastDeadLines();
+  sendEmails();
+});

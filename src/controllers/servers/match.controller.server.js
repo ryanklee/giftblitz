@@ -43,41 +43,46 @@ const addAssignment = function addAssignment(groupID, matchedPairs) {
   });
 };
 
-Group.aggregate([
-  {
-    $match: { pastDeadline: true },
-  },
-  {
-    $project: { _id: 1, members: 1 },
-  },
-  {
-    $unwind: '$members',
-  },
-])
-  .exec((err, result) => {
-    if (err) console.log(err);
-    const idCollection = {};
-    result
-      .forEach((item) => {
-        if (!idCollection[item._id]) {
-          idCollection[item._id] = [];
-          idCollection[item._id].push(item.members._id);
-        } else {
-          idCollection[item._id].push(item.members._id);
+
+const pushMatchesToEmail = function pushMatchesToEmail() {
+  Group.aggregate([
+    {
+      $match: { pastDeadline: true },
+    },
+    {
+      $project: { _id: 1, members: 1 },
+    },
+    {
+      $unwind: '$members',
+    },
+  ])
+    .exec((err, result) => {
+      if (err) console.log(err);
+      const idCollection = {};
+      result
+        .forEach((item) => {
+          if (!idCollection[item._id]) {
+            idCollection[item._id] = [];
+            idCollection[item._id].push(item.members._id);
+          } else {
+            idCollection[item._id].push(item.members._id);
+          }
+        });
+  
+      Object.keys(idCollection).forEach((groupID) => {
+        let completedMatchSet = false;
+        while (completedMatchSet === false) {
+          completedMatchSet = generateMatches(idCollection[groupID]);
         }
+        idCollection[groupID] = completedMatchSet;
       });
-
-    Object.keys(idCollection).forEach((groupID) => {
-      let completedMatchSet = false;
-      while (completedMatchSet === false) {
-        completedMatchSet = generateMatches(idCollection[groupID]);
-      }
-      idCollection[groupID] = completedMatchSet;
+  
+      Object.keys(idCollection).forEach((groupID) => {
+        const matchedPairs = idCollection[groupID];
+        addAssignment(groupID, matchedPairs);
+      });
+      prepEmails(idCollection);
     });
+};
 
-    Object.keys(idCollection).forEach((groupID) => {
-      const matchedPairs = idCollection[groupID];
-      addAssignment(groupID, matchedPairs);
-    });
-    prepEmails(idCollection);
-  });
+module.exports = pushMatchesToEmail;

@@ -13,7 +13,7 @@ const prepEmails = function fireEmail(idCollection) {
       group.members.forEach((item) => {
         limiter.removeTokens(1, (errors, remainingRequests) => {
           sendEmail(item.email);
-          console.log(remainingRequests);
+          //console.log(remainingRequests);
         });
       });
     });

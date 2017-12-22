@@ -4,7 +4,7 @@ An app meant to eventually propose a new UX for gift matching (aka secret santa)
 
 Currently just the backend, written in JavaScript, using Express, Node.js and MongoDB.
 
-To-Do:
+Todo:
 
-..* Migrate to ASP.NET Core MVC 2
-..* Implement front-end
+* Migrate to ASP.NET Core MVC 2
+* Implement front-end

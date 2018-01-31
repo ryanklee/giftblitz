@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Giftblitz.Models;
 
 namespace Giftblitz
 {
@@ -8,6 +9,7 @@ namespace Giftblitz
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IGroupRepository, FakeGroupRepository>();
             services.AddMvc();
         }
 

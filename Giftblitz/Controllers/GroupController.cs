@@ -12,6 +12,6 @@ namespace Giftblitz.Controllers
             repository = repo;
         }
 
-        public ViewResult List() => View(repository.Groups);
+        public ViewResult ListGroups() => View(repository.Groups);
     }
 }

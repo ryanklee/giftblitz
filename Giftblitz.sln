@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Giftblitz", "Giftblitz\Giftblitz.csproj", "{CA8CB03A-0735-4482-A708-FD7C1C400C8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Giftblitz", "Giftblitz\Giftblitz.csproj", "{CA8CB03A-0735-4482-A708-FD7C1C400C8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Giftblitz.Tests", "Giftblitz.Tests\Giftblitz.Tests.csproj", "{5765EEBA-F911-4556-9077-D0A41DC41774}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Giftblitz.Tests", "Giftblitz.Tests\Giftblitz.Tests.csproj", "{5765EEBA-F911-4556-9077-D0A41DC41774}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

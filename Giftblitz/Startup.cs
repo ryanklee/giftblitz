@@ -24,7 +24,9 @@ namespace Giftblitz
             app.UseStaticFiles();
             app.UseMvc(routes =>
             {
-
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Group}/{action=ListGroup}/{id?}");
             });
         }
     }

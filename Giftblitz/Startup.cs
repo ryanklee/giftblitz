@@ -26,7 +26,7 @@ namespace Giftblitz
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Group}/{action=ListGroup}/{id?}");
+                    template: "{controller=Group}/{action=ListGroups}/{id?}");
             });
         }
     }

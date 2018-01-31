@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Giftblitz", "Giftblitz\Giftblitz.csproj", "{C325408D-1165-4DC3-9C97-9362B786B25D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Giftblitz.Tests", "..\Giftblitz.Tests\Giftblitz.Tests.csproj", "{2CF91DAC-F450-4A8C-9EE5-C22EBBC02710}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C325408D-1165-4DC3-9C97-9362B786B25D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C325408D-1165-4DC3-9C97-9362B786B25D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C325408D-1165-4DC3-9C97-9362B786B25D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C325408D-1165-4DC3-9C97-9362B786B25D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CF91DAC-F450-4A8C-9EE5-C22EBBC02710}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CF91DAC-F450-4A8C-9EE5-C22EBBC02710}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CF91DAC-F450-4A8C-9EE5-C22EBBC02710}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CF91DAC-F450-4A8C-9EE5-C22EBBC02710}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DBFAEE60-F29F-42C4-BC5D-8089A0E43D13}
+	EndGlobalSection
+EndGlobal

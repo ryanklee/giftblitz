@@ -1,0 +1,11 @@
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz\bin\Debug\netcoreapp2.0\Giftblitz.deps.json
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz\bin\Debug\netcoreapp2.0\Giftblitz.runtimeconfig.json
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz\bin\Debug\netcoreapp2.0\Giftblitz.runtimeconfig.dev.json
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz\bin\Debug\netcoreapp2.0\Giftblitz.dll
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz\bin\Debug\netcoreapp2.0\Giftblitz.pdb
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz\obj\Debug\netcoreapp2.0\Giftblitz.csprojResolveAssemblyReference.cache
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz\obj\Debug\netcoreapp2.0\Giftblitz.csproj.CoreCompileInputs.cache
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz\obj\Debug\netcoreapp2.0\Giftblitz.AssemblyInfoInputs.cache
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz\obj\Debug\netcoreapp2.0\Giftblitz.AssemblyInfo.cs
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz\obj\Debug\netcoreapp2.0\Giftblitz.dll
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz\obj\Debug\netcoreapp2.0\Giftblitz.pdb

@@ -1,0 +1,16 @@
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz.Tests\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz.Tests\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz.Tests\bin\Debug\netcoreapp2.0\xunit.runner.utility.netcoreapp10.dll
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz.Tests\bin\Debug\netcoreapp2.0\Giftblitz.Tests.deps.json
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz.Tests\bin\Debug\netcoreapp2.0\Giftblitz.Tests.runtimeconfig.json
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz.Tests\bin\Debug\netcoreapp2.0\Giftblitz.Tests.runtimeconfig.dev.json
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz.Tests\bin\Debug\netcoreapp2.0\Giftblitz.Tests.dll
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz.Tests\bin\Debug\netcoreapp2.0\Giftblitz.Tests.pdb
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz.Tests\bin\Debug\netcoreapp2.0\Giftblitz.dll
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz.Tests\bin\Debug\netcoreapp2.0\Giftblitz.pdb
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz.Tests\obj\Debug\netcoreapp2.0\Giftblitz.Tests.csprojResolveAssemblyReference.cache
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz.Tests\obj\Debug\netcoreapp2.0\Giftblitz.Tests.csproj.CoreCompileInputs.cache
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz.Tests\obj\Debug\netcoreapp2.0\Giftblitz.Tests.AssemblyInfoInputs.cache
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz.Tests\obj\Debug\netcoreapp2.0\Giftblitz.Tests.AssemblyInfo.cs
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz.Tests\obj\Debug\netcoreapp2.0\Giftblitz.Tests.dll
+C:\Users\rylkl\source\repos\Giftblitz\Giftblitz.Tests\obj\Debug\netcoreapp2.0\Giftblitz.Tests.pdb

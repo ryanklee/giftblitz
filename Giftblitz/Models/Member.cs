@@ -2,11 +2,12 @@
 {
     public class Member
     {
+        public string MemberID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public Group Group { get; set; }
-        public Member Assignment { get; set; }
-        public Member Assignee { get; set; }
         public string Email { get; set; }
+        public string Group { get; set; }
+        public string Assignment { get; set; }
+        public string Assignee { get; set; }
     }
 }

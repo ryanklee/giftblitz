@@ -2,14 +2,24 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Giftblitz.Models;
+using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
 
 namespace Giftblitz
 {
     public class Startup
     {
+        public Startup(IConfiguration configuration) =>
+            Configuration = configuration;
+
+        public IConfiguration Configuration { get;  }
+
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IGroupRepository, FakeGroupRepository>();
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration["Data:GiftblitzGroups:ConnectionString"]));
+            services.AddTransient<IGroupRepository, EFGroupRepository>();
             services.AddMvc();
         }
 

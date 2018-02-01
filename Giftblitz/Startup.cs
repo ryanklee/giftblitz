@@ -18,7 +18,7 @@ namespace Giftblitz
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration["Data:GiftblitzGroups:ConnectionString"]));
+                    Configuration["Data:Giftblitz:ConnectionString"]));
             services.AddTransient<IGroupRepository, EFGroupRepository>();
             services.AddMvc();
         }

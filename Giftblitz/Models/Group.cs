@@ -9,6 +9,5 @@ namespace Giftblitz.Models
         public string Name { get; set; }
         public DateTime Deadline { get; set; }
         public string Message { get; set; }
-        public List<String> Members { get; set; }
     }
 }
